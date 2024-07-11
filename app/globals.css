@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-static: 0, 0, 0;
+}
+
+
+.light{
+  --foreground-rgb: 0, 0, 0;
+  --background-static: 255, 255, 255;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-static));
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.pull-down{
+  top: 0px;
+  animation: comedown 1s;
+}
+
+.box-left-entry{
+  transform: translateX(100%);
+  animation: left-entry 1s ease-out 0.5s forwards;
+}
+.scale-image{
+  animation: scale-image 1s ease-in-out;
+}
+
+.button{
+  background: linear-gradient(to left, rgb(var(--background-static)) 50%, #C277DA 50%) right;
+  background-size: 200%;
+  transition: .2s ease-out;
+}
+.button:hover {
+  background-position: left;
+}
+
+
+@keyframes comedown {
+  from{
+    top: -250px;
+  }
+  to{
+    top: 0;
+  }
+}
+@keyframes left-entry {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes scale-image {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(100%);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
